@@ -1,0 +1,169 @@
+@media (max-width: 991px){
+  header{
+    padding:14px 24px;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .hero p{
+    font-size:18px;
+  }
+
+  .about-wrap,
+  .contact-wrap{
+    grid-template-columns:1fr;
+  }
+
+  .gallery{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .services,
+  .stats,
+  .reviews{
+    gap:18px;
+  }
+}
+
+@media (max-width: 768px){
+  header{
+    padding:12px 16px;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+  }
+
+  .logo{
+    font-size:20px;
+    text-align:center;
+  }
+
+  nav{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px 14px;
+  }
+
+  nav a{
+    font-size:14px;
+  }
+
+  .hero{
+    padding:130px 16px 60px;
+    min-height:90vh;
+  }
+
+  .hero h1{
+    font-size:30px;
+  }
+
+  .hero p{
+    font-size:15px;
+    margin-bottom:22px;
+  }
+
+  .btn{
+    padding:12px 22px;
+    font-size:14px;
+  }
+
+  .section{
+    padding:70px 16px;
+  }
+
+  .section-title{
+    font-size:28px;
+  }
+
+  .section-subtitle{
+    font-size:15px;
+    margin-bottom:30px;
+  }
+
+  .card,
+  .review-card,
+  .stats .stat-box{
+    width:100%;
+  }
+
+  .card img{
+    height:200px;
+  }
+
+  .about-text h2{
+    font-size:28px;
+  }
+
+  .about-text p,
+  .card p,
+  .review-card p,
+  .contact-info p{
+    font-size:14px;
+  }
+
+  .gallery{
+    grid-template-columns:1fr;
+  }
+
+  .gallery img{
+    height:220px;
+  }
+
+  .contact-info,
+  .contact-form{
+    padding:20px;
+  }
+
+  input, textarea, button{
+    font-size:14px;
+  }
+
+  .whatsapp{
+    width:52px;
+    height:52px;
+    font-size:24px;
+    right:14px;
+    bottom:14px;
+  }
+
+  footer{
+    font-size:14px;
+    padding:22px 14px;
+  }
+}
+
+@media (max-width: 480px){
+  .hero h1{
+    font-size:25px;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  .section-title{
+    font-size:24px;
+  }
+
+  .logo{
+    font-size:18px;
+  }
+
+  nav a{
+    font-size:13px;
+  }
+
+  .card-body{
+    padding:18px;
+  }
+
+  .card h3{
+    font-size:20px;
+  }
+
+  .stat-box h3{
+    font-size:32px;
+  }
+}

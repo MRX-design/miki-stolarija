@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MIKI ALU PVC STOLARIJA</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Poppins,sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#fff;
+      color:#222;
+      overflow-x:hidden;
+    }
+
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 40px;
+      background:rgba(0,0,0,0.82);
+      z-index:1000;
+      backdrop-filter:blur(6px);
+    }
+
+    .logo{
+      color:#fff;
+      font-size:24px;
+      font-weight:700;
+      letter-spacing:1px;
+    }
+
+    nav{
+      display:flex;
+      gap:22px;
+    }
+
+    nav a{
+      color:#fff;
+      text-decoration:none;
+      font-size:15px;
+      transition:.3s;
+    }
+
+    nav a:hover{
+      color:orange;
+    }
+
+    .hero{
+      min-height:100vh;
+      background:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+        url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:120px 20px 60px;
+      color:#fff;
+    }
+
+    .hero-content{
+      max-width:900px;
+      animation:fadeUp 1s ease;
+    }
+
+    .hero h1{
+      font-size:58px;
+      line-height:1.1;
+      margin-bottom:18px;
+    }
+
+    .hero p{
+      font-size:20px;
+      opacity:.95;
+      margin-bottom:28px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 28px;
+      background:orange;
+      color:#111;
+      text-decoration:none;
+      font-weight:700;
+      border-radius:6px;
+      transition:.3s;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .section{
+      padding:90px 40px;
+      text-align:center;
+    }
+
+    .section-title{
+      font-size:38px;
+      margin-bottom:16px;
+    }
+
+    .section-subtitle{
+      max-width:760px;
+      margin:0 auto 45px;
+      color:#666;
+      line-height:1.7;
+    }
+
+    .services,
+    .stats,
+    .reviews{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:24px;
+    }
+
+    .card{
+      width:320px;
+      background:#fff;
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+      transition:.35s;
+      opacity:0;
+      transform:translateY(40px);
+    }
+
+    .card.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 16px 36px rgba(0,0,0,.12);
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .card-body{
+      padding:22px;
+    }
+
+    .card h3{
+      margin-bottom:10px;
+      font-size:22px;
+    }
+
+    .card p{
+      color:#666;
+      line-height:1.7;
+      font-size:15px;
+    }
+
+    .about{
+      background:#f7f7f7;
+    }
+
+    .about-wrap{
+      max-width:1000px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+      align-items:center;
+      text-align:left;
+    }
+
+    .about-wrap img{
+      width:100%;
+      border-radius:18px;
+      box-shadow:0 10px 30px rgba(0,0,0,.12);
+    }
+
+    .about-text h2{
+      font-size:38px;
+      margin-bottom:18px;
+    }
+
+    .about-text p{
+      color:#666;
+      line-height:1.8;
+      margin-bottom:14px;
+    }
+
+    .stats .stat-box{
+      width:240px;
+      background:#fff;
+      border-radius:16px;
+      padding:28px 20px;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+
+    .stat-box h3{
+      font-size:40px;
+      color:orange;
+      margin-bottom:8px;
+    }
+
+    .stat-box p{
+      color:#666;
+      font-size:15px;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      max-width:1200px;
+      margin:0 auto;
+    }
+
+    .gallery img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      border-radius:14px;
+      transition:.35s;
+    }
+
+    .gallery img:hover{
+      transform:scale(1.03);
+    }
+
+    .review-card{
+      width:340px;
+      background:#fff;
+      border-radius:16px;
+      padding:24px;
+      text-align:left;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+
+    .review-card .stars{
+      font-size:20px;
+      margin-bottom:10px;
+      color:orange;
+    }
+
+    .review-card p{
+      color:#666;
+      line-height:1.7;
+      margin-bottom:14px;
+    }
+
+    .review-card h4{
+      font-size:16px;
+    }
+
+    .contact{
+      background:#f7f7f7;
+    }
+
+    .contact-wrap{
+      max-width:1100px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+      text-align:left;
+    }
+
+    .contact-info,
+    .contact-form{
+      background:#fff;
+      padding:28px;
+      border-radius:18px;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+
+    .contact-info h3,
+    .contact-form h3{
+      margin-bottom:18px;
+      font-size:26px;
+    }
+
+    .contact-info p{
+      color:#666;
+      line-height:1.8;
+      margin-bottom:12px;
+    }
+
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    input, textarea{
+      width:100%;
+      padding:14px 16px;
+      border:1px solid #ddd;
+      border-radius:10px;
+      outline:none;
+      font-size:15px;
+    }
+
+    textarea{
+      min-height:140px;
+      resize:vertical;
+    }
+
+    button{
+      border:none;
+      background:orange;
+      color:#111;
+      padding:14px 20px;
+      border-radius:10px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.3s;
+    }
+
+    button:hover{
+      transform:translateY(-2px);
+    }
+
+    .whatsapp{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#25D366;
+      color:#fff;
+      text-decoration:none;
+      font-size:28px;
+      box-shadow:0 10px 22px rgba(0,0,0,.2);
+      z-index:999;
+    }
+
+    footer{
+      background:#111;
+      color:#fff;
+      text-align:center;
+      padding:28px 20px;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media (max-width: 991px){
+      .hero h1{
+        font-size:42px;
+      }
+
+      .about-wrap,
+      .contact-wrap{
+        grid-template-columns:1fr;
+      }
+
+      .gallery{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+
+    @media (max-width: 768px){
+      header{
+        padding:14px 18px;
+        flex-direction:column;
+        gap:10px;
+      }
+
+      nav{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:14px;
+      }
+
+      .section{
+        padding:75px 18px;
+      }
+
+      .hero h1{
+        font-size:32px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+      .card,
+      .review-card,
+      .stats .stat-box{
+        width:100%;
+      }
+
+      .gallery{
+        grid-template-columns:1fr;
+      }
+
+      .gallery img{
+        height:220px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">MIKI ALU PVC STOLARIJA</div>
+    <nav>
+      <a href="#pocetna">Početna</a>
+      <a href="#ponuda">Ponuda</a>
+      <a href="#onama">O nama</a>
+      <a href="#galerija">Galerija</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="pocetna">
+    <div class="hero-content">
+      <h1>VRHUNSKA PVC I ALU STOLARIJA</h1>
+      <p>Kvalitet, sigurnost i dugotrajnost za vaš dom i poslovni prostor.</p>
+      <a href="#kontakt" class="btn">Zatraži ponudu</a>
+    </div>
+  </section>
+
+  <section class="section" id="ponuda">
+    <h2 class="section-title">Ponuda</h2>
+    <p class="section-subtitle">
+      Pogledajte našu kompletnu ponudu proizvoda i sistema za savremenu i kvalitetnu stolariju.
+    </p>
+
+    <div class="services">
+      <div class="card reveal">
+        <img src="data:image/jpeg;base64,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" alt="PVC stolarija">
+        <div class="card-body">
+          <h3>PVC Stolarija</h3>
+          <p>Energetski efikasni prozori i vrata visokog kvaliteta, sa modernim izgledom i odličnom izolacijom.</p>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <img src="https://quadro.rs/wp-content/uploads/2023/03/Geneo-1.png" alt="ALU stolarija">
+        <div class="card-body">
+          <h3>ALU Stolarija</h3>
+          <p>Izdržljivi aluminijumski sistemi za stambene i poslovne objekte, uz moderan dizajn i dug vek trajanja.</p>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <img src="data:image/jpeg;base64,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" alt="Roletne i komarnici">
+        <div class="card-body">
+          <h3>Roletne i Komarnici</h3>
+          <p>Praktična i estetska rešenja za dodatnu zaštitu, privatnost i udobnost u svakom prostoru.</p>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <img src="data:image/jpeg;base64,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" alt="Segmentna vrata">
+        <div class="card-body">
+          <h3>Segmentna Vrata</h3>
+          <p>Segmentna garažna vrata predstavljaju moderno i praktično rešenje za vaš dom ili poslovni prostor. Zahvaljujući sistemu vertikalnog otvaranja, vrata se podižu prema plafonu, čime se maksimalno štedi prostor ispred i unutar garaže.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section about" id="onama">
+    <div class="about-wrap">
+      <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80" alt="O nama">
+      <div class="about-text">
+        <h2>O nama</h2>
+        <p>Posvećeni smo izradi i montaži kvalitetne PVC i ALU stolarije, sa fokusom na pouzdanost, estetiku i dugotrajnost.</p>
+        <p>Naš cilj je da svakom klijentu ponudimo rešenje koje odgovara njegovim potrebama, prostoru i budžetu.</p>
+        <p>Uz profesionalan pristup i proverene materijale, gradimo poverenje i kvalitet koji traje godinama.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Naši rezultati</h2>
+    <p class="section-subtitle">
+      Brojevi koji pokazuju poverenje klijenata i iskustvo koje stoji iza svakog projekta.
+    </p>
+
+    <div class="stats">
+      <div class="stat-box">
+        <h3><span class="num" data-val="2000">0</span>+</h3>
+        <p>Zadovoljnih klijenata</p>
+      </div>
+      <div class="stat-box">
+        <h3><span class="num" data-val="25">0</span>+</h3>
+        <p>Godina iskustva</p>
+      </div>
+      <div class="stat-box">
+        <h3><span class="num" data-val="100">0</span>%</h3>
+        <p>Posvećenost kvalitetu</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="galerija">
+    <h2 class="section-title">Galerija</h2>
+    <p class="section-subtitle">
+      Pogledajte neke od realizovanih projekata i inspiraciju za vaš prostor.
+    </p>
+
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Galerija 1">
+      <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1200&q=80" alt="Galerija 2">
+      <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80" alt="Galerija 3">
+      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Galerija 4">
+      <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80" alt="Galerija 5">
+      <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80" alt="Galerija 6">
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Utisci klijenata</h2>
+    <p class="section-subtitle">
+      Zadovoljstvo klijenata nam je najveća preporuka.
+    </p>
+
+    <div class="reviews">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>Odlična saradnja, brza montaža i kvalitet koji se odmah vidi. Sve preporuke.</p>
+        <h4>Marko P.</h4>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>Profesionalni, tačni i vrlo ljubazni. Prozori i vrata izgledaju vrhunski.</p>
+        <h4>Jelena S.</h4>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>Ponuda, izrada i ugradnja su odrađeni bez problema. Veoma smo zadovoljni.</p>
+        <h4>Nikola R.</h4>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="kontakt">
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <h3>Kontakt informacije</h3>
+        <p><strong>Telefon:</strong> +381 60 345 6933</p>
+        <p><strong>Email:</strong> sladjan.komnenovic@outlook.com</p>
+        <p><strong>Adresa:</strong> Oreskovica</p>
+        <p><strong>Radno vreme:</strong> Pon - Ned: 08:00 - 17:00</p>
+      </div>
+
+      <div class="contact-form">
+        <h3>Pošaljite upit</h3>
+        <form onsubmit="sendMail(event)">
+          <input type="text" id="name" placeholder="Ime i prezime" required>
+          <input type="email" id="email" placeholder="Email adresa" required>
+          <input type="tel" id="phone" placeholder="Broj telefona" required>
+          <textarea id="message" placeholder="Vaša poruka" required></textarea>
+          <button type="submit">Pošalji poruku</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <a class="whatsapp" href="https://wa.me/381603456933" target="_blank">💬</a>
+
+  <footer>
+    <p>© 2026 MIKI ALU PVC STOLARIJA. Sva prava zadržana.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <script>
+    (function(){
+      emailjs.init("H48N8HLUZ2uJ3S-8B");
+    })();
+
+    const revealElements = document.querySelectorAll('.reveal');
+
+    function revealOnScroll() {
+      revealElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 80) {
+          el.classList.add('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    const nums = document.querySelectorAll('.num');
+    let started = false;
+
+    function startCounters() {
+      const statsSection = document.querySelector('.stats');
+      if (!statsSection) return;
+
+      const top = statsSection.getBoundingClientRect().top;
+      if (top < window.innerHeight - 60 && !started) {
+        started = true;
+
+        nums.forEach(n => {
+          const target = +n.getAttribute('data-val');
+          const speed = Math.max(10, Math.floor(2000 / target));
+          let count = 0;
+
+          const update = () => {
+            if (count < target) {
+              count += Math.ceil(target / 80);
+              if (count > target) count = target;
+              n.innerText = count;
+              setTimeout(update, speed);
+            } else {
+              n.innerText = target;
+            }
+          };
+
+          update();
+        });
+      }
+    }
+
+    window.addEventListener('scroll', startCounters);
+    window.addEventListener('load', startCounters);
+
+    function sendMail(e){
+      e.preventDefault();
+
+      const params = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        message: document.getElementById("message").value
+      };
+
+      emailjs.send("service_j7qdium", "template_v3t3ryl", params)
+        .then(function() {
+          alert("✅ Poruka je uspešno poslata!");
+          document.querySelector(".contact-form form").reset();
+        })
+        .catch(function(error) {
+          console.error("EmailJS greška:", error);
+          alert("❌ Došlo je do greške pri slanju poruke.");
+        });
+    }
+  </script>
+
+</body>
+</html>
